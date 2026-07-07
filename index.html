@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이원 워터월드 | 신나는 물의 세상</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                             url('https://www.high1.com/upload/waterworld/main_visual.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .zone-card {
+            transition: all 0.3s ease;
+        }
+        
+        .zone-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .slide {
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- NAV -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="https://www.high1.com/images/common/logo_high1.png" alt="하이원" class="h-10">
+                <div>
+                    <span class="text-2xl font-bold text-blue-600">워터월드</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#zones" class="hover:text-blue-600 transition">시설안내</a>
+                <a href="#events" class="hover:text-blue-600 transition">이벤트</a>
+                <a href="#info" class="hover:text-blue-600 transition">이용안내</a>
+            </div>
+            <div class="text-sm bg-blue-600 text-white px-5 py-2.5 rounded-full font-medium flex items-center gap-2 hover:bg-blue-700 transition">
+                <i class="fas fa-phone"></i>
+                1588-7789
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg h-screen flex items-center text-white relative">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-6xl md:text-7xl font-bold mb-4 tracking-tight">
+                신나는 물의 세상!
+            </h1>
+            <p class="text-3xl md:text-4xl font-medium mb-8">하이원 워터월드</p>
+            <p class="max-w-md mx-auto text-xl mb-12">
+                사계절 즐길 수 있는 프리미엄 워터파크<br>
+                청정 백두대간의 물과 함께하는 최고의 휴식
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#zones" 
+                   class="inline-flex items-center justify-center bg-white text-blue-600 hover:bg-gray-100 px-10 py-4 rounded-2xl text-lg font-semibold transition shadow-xl">
+                    시설 둘러보기
+                </a>
+                <a href="#events" 
+                   class="inline-flex items-center justify-center border-2 border-white hover:bg-white hover:text-blue-600 px-10 py-4 rounded-2xl text-lg font-semibold transition">
+                    이벤트 확인하기
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+            <div class="text-xs tracking-widest mb-2">SCROLL</div>
+            <i class="fas fa-chevron-down animate-bounce text-3xl"></i>
+        </div>
+    </header>
+
+    <!-- 운영현황 -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full">2026 시즌</span>
+                <h2 class="text-4xl font-bold mt-4">시설별 운영현황</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Family Zone -->
+                <div class="bg-emerald-50 p-6 rounded-3xl text-center">
+                    <div class="text-emerald-600 text-xl font-bold mb-1">패밀리존</div>
+                    <div class="text-5xl font-extrabold text-emerald-600">OPEN</div>
+                </div>
+                <!-- Island Zone -->
+                <div class="bg-cyan-50 p-6 rounded-3xl text-center">
+                    <div class="text-cyan-600 text-xl font-bold mb-1">아일랜드존</div>
+                    <div class="text-5xl font-extrabold text-cyan-600">OPEN</div>
+                </div>
+                <!-- Poseidon Zone -->
+                <div class="bg-indigo-50 p-6 rounded-3xl text-center">
+                    <div class="text-indigo-600 text-xl font-bold mb-1">포세이돈존</div>
+                    <div class="text-5xl font-extrabold text-indigo-600">OPEN</div>
+                </div>
+                <!-- Wave -->
+                <div class="bg-rose-50 p-6 rounded-3xl text-center">
+                    <div class="text-rose-600 text-xl font-bold mb-1">패밀리 웨이브</div>
+                    <div class="text-5xl font-extrabold text-rose-600">OPEN</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONES -->
+    <section id="zones" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">세 가지 재미있는 존</h2>
+                <p class="text-xl text-gray-600">가족과 함께, 스릴을 원하는 모두를 위한 공간</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Family Zone -->
+                <div class="zone-card bg-white rounded-3xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-cover bg-center" 
+                         style="background-image: url('https://www.high1.com/upload/waterworld/family_zone.jpg')"></div>
+                    <div class="p-8">
+                        <div class="uppercase text-emerald-600 text-sm font-bold tracking-widest mb-2">FAMILY ZONE</div>
+                        <h3 class="text-3xl font-bold mb-4">패밀리존</h3>
+                        <p class="text-gray-600 mb-6">
+                            따뜻한 봄부터 시원한 겨울까지.<br>
+                            사계절 즐길 수 있는 가족 전용 공간
+                        </p>
+                        <a href="https://www.high1.com/waterworld/contents.do?key=697" 
+                           target="_blank"
+                           class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium">
+                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Island Zone -->
+                <div class="zone-card bg-white rounded-3xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-cover bg-center" 
+                         style="background-image: url('https://www.high1.com/upload/waterworld/island_zone.jpg')"></div>
+                    <div class="p-8">
+                        <div class="uppercase text-cyan-600 text-sm font-bold tracking-widest mb-2">ISLAND ZONE</div>
+                        <h3 class="text-3xl font-bold mb-4">아일랜드존</h3>
+                        <p class="text-gray-600 mb-6">
+                            짜릿한 슬라이드와 스릴!<br>
+                            온수로 언제나 쾌적한 어드벤처
+                        </p>
+                        <a href="https://www.high1.com/waterworld/contents.do?key=707" 
+                           target="_blank"
+                           class="inline-flex items-center gap-2 text-cyan-600 hover:text-cyan-700 font-medium">
+                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Poseidon Zone -->
+                <div class="zone-card bg-white rounded-3xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-cover bg-center" 
+                         style="background-image: url('https://www.high1.com/upload/waterworld/poseidon_zone.jpg')"></div>
+                    <div class="p-8">
+                        <div class="uppercase text-indigo-600 text-sm font-bold tracking-widest mb-2">POSEIDON ZONE</div>
+                        <h3 class="text-3xl font-bold mb-4">포세이돈존</h3>
+                        <p class="text-gray-600 mb-6">
+                            국내 최대 3m 파도풀<br>
+                            업힐 슬라이드와 보울의 스릴
+                        </p>
+                        <a href="https://www.high1.com/waterworld/contents.do?key=711" 
+                           target="_blank"
+                           class="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium">
+                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold mb-4">이벤트 &amp; 패키지</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="border border-gray-200 rounded-3xl p-8 hover:border-blue-300 transition">
+                    <div class="text-amber-500 mb-3">
+                        <i class="fas fa-star text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">7월 키즈원더랜드 공연행사</h3>
+                    <div class="text-sm text-gray-500 mb-6">2026.07.01 ~ 2026.07.31</div>
+                    <p class="text-gray-600">아이들을 위한 특별 공연과 즐길 거리가 가득!</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-3xl p-8 hover:border-blue-300 transition">
+                    <div class="text-rose-500 mb-3">
+                        <i class="fas fa-sun text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">여름시즌 워터월드 패키지</h3>
+                    <div class="text-sm text-gray-500 mb-6">2026.07.01 ~ 2026.08.31</div>
+                    <p class="text-gray-600">HOT! 여름 COOL~한 워터를 즐겨라</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO -->
+    <section id="info" class="py-20 bg-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-4xl font-bold mb-10">이용안내</h2>
+                
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-clock text-2xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-lg">운영시간</div>
+                            <div class="text-blue-200">10:00 ~ 17:30 (물놀이 17:00 종료)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone text-2xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-lg">대표전화</div>
+                            <div class="text-3xl font-bold tracking-wider">1588-7789</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-6">주요 시설</h3>
+                <ul class="grid grid-cols-2 gap-x-8 gap-y-4 text-blue-100">
+                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 패밀리 웨이브</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 아쿠아플레이</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 포세이돈 웨이브</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 둥둥리버</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 다양한 슬라이드</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 온수 풀</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="flex items-center gap-3 text-white mb-6">
+                        <img src="https://www.high1.com/images/common/logo_high1.png" alt="하이원" class="h-8 opacity-80">
+                        <span class="text-xl font-bold">워터월드</span>
+                    </div>
+                    <p class="text-sm">강원도 정선군 사북읍 하이원길 265</p>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <div class="text-white text-sm mb-2">하이원 리조트 공식 사이트</div>
+                    <a href="https://www.high1.com" target="_blank" 
+                       class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300">
+                        www.high1.com <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-16 pt-8 text-xs text-center">
+                © 2026 High1 Resort. All Rights Reserved. 
+                <span class="text-gray-500">본 페이지는 홍보용 랜딩페이지입니다.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script already loaded
+        console.log('%c하이원 워터월드 랜딩페이지가 로드되었습니다.', 'color: #3b82f6; font-weight: bold');
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

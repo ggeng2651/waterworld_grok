@@ -1,0 +1,174 @@
+'use client'
+
+import { useState } from 'react'
+
+export function Contact() {
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+  })
+
+  const [loading, setLoading] = useState(false)
+  const [complete, setComplete] = useState(false)
+
+  const scriptURL =
+    'https://script.google.com/macros/s/AKfycbz4tAySEa8_NxWV7rr6TL0sht3HHlh10nuFj3wYlRkIEkUPz9dkSaXS4RnWX_d4FrPE/exec'
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = async (
+    e: React.FormEvent
+  ) => {
+    e.preventDefault()
+
+    setLoading(true)
+
+    try {
+      await fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(form),
+      })
+
+      setComplete(true)
+
+      setForm({
+        name: '',
+        phone: '',
+        email: '',
+        message: '',
+      })
+
+    } catch (error) {
+      alert('문의 접수 중 오류가 발생했습니다.')
+    }
+
+    setLoading(false)
+  }
+
+
+  return (
+    <section
+      id="contact"
+      className="bg-slate-50 py-24"
+    >
+      <div className="mx-auto max-w-5xl px-6">
+
+        <div className="mb-12 text-center">
+
+          <p className="text-sm font-bold tracking-widest text-cyan-600">
+            CONTACT
+          </p>
+
+          <h2 className="mt-3 text-4xl font-black text-gray-900 md:text-5xl">
+            문의하기
+          </h2>
+
+          <p className="mt-4 text-gray-600">
+            하이원 워터월드에 대한 문의를 남겨주세요.
+            <br />
+            담당자가 확인 후 빠르게 연락드립니다.
+          </p>
+
+        </div>
+
+
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-3xl bg-white p-8 shadow-xl md:p-12"
+        >
+
+          <div className="grid gap-6 md:grid-cols-2">
+
+
+            <input
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="이름"
+              required
+              className="rounded-xl border p-4 outline-none focus:border-cyan-500"
+            />
+
+
+            <input
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
+              placeholder="연락처"
+              required
+              className="rounded-xl border p-4 outline-none focus:border-cyan-500"
+            />
+
+
+          </div>
+
+
+          <input
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="이메일"
+            className="mt-6 w-full rounded-xl border p-4 outline-none focus:border-cyan-500"
+          />
+
+
+          <textarea
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            placeholder="문의 내용을 입력해주세요."
+            required
+            rows={6}
+            className="mt-6 w-full rounded-xl border p-4 outline-none focus:border-cyan-500"
+          />
+
+
+          <label className="mt-6 flex items-center gap-2 text-sm text-gray-600">
+
+            <input
+              type="checkbox"
+              required
+            />
+
+            개인정보 수집 및 이용에 동의합니다.
+
+          </label>
+
+
+          <button
+            disabled={loading}
+            className="mt-8 w-full rounded-full bg-cyan-600 py-4 font-bold text-white transition hover:bg-cyan-700"
+          >
+
+            {loading
+              ? '접수중...'
+              : '문의하기'}
+
+          </button>
+
+
+          {
+            complete && (
+              <p className="mt-5 text-center font-semibold text-cyan-600">
+                문의가 접수되었습니다.
+                감사합니다.
+              </p>
+            )
+          }
+
+
+        </form>
+
+      </div>
+    </section>
+  )
+}

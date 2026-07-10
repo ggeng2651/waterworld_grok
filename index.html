@@ -13,7 +13,7 @@
             font-family: 'Noto Sans KR', sans-serif;
         }
         
-.hero-bg {
+        .hero-bg {
             /* 기본 모바일: 이미지가 찌그러지거나 늘어나지 않도록 비율 유지(contain) */
             background-image: url('https://github.com/ggeng2651/waterworld_grok/raw/main/%EC%83%81%EB%8B%A8%20%EB%B0%B0%EB%84%88%EC%9D%B4%EB%AF%B8%EC%A7%800710.png');
             background-size: contain;
@@ -21,7 +21,6 @@
             background-repeat: no-repeat;
             background-color: #000000; /* 여백 영역은 깔끔하게 블랙 처리 */
             
-            /* 모바일 화면에서는 가로 세로 비율에 맞게 배너 높이가 자동으로 잡히도록 설정 */
             width: 100%;
             height: auto;
             aspect-ratio: 1042 / 600; /* 원본 이미지의 가로/세로 비율 고정 (비율 깨짐 방지) */
@@ -31,14 +30,17 @@
             image-rendering: crisp-edges;
         }
 
+        /* [핵심 수정] PC 화면에서 무한정 늘어나 깨지는 cover 방식을 버리고 최대폭 제한 */
         @media (min-width: 768px) {
-            /* PC 화면: 기존처럼 화면을 가득 채우도록 변경 */
             .hero-bg {
-                height: calc(100vh - 80px); /* 내비바 제외한 화면 꽉 차게 */
-                background-size: cover;
+                height: calc(100vh - 80px); /* 내비바 제외한 화면 크기 */
+                background-size: contain;   /* 이미지가 깨지지 않게 비율을 완벽히 유지 */
+                max-width: 1200px;          /* 대화면 PC에서도 이미지가 찢어지지 않도록 고정 */
+                margin: 0 auto;             /* 중앙 정렬 */
                 aspect-ratio: auto;
             }
         }
+        
         .zone-card {
             transition: all 0.3s ease;
         }
@@ -54,38 +56,41 @@
     </style>
 </head>
 <body class="bg-slate-50 text-gray-800">
-    <nav class="bg-slate-950/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <img src="https://github.com/ggeng2651/waterworld_grok/raw/main/%ED%95%98%EC%9D%B4%EC%9B%90%20%EB%A1%9C%EA%B3%A0%20%EB%B0%B0%EA%B2%BDx.png"
-alt="하이원"
-class="h-14 w-auto object-contain">
-                <div>
-                    <span class="text-2xl font-bold text-purple-600"></span>
+    <!-- 배경 이미지 좌우 여백 처리를 위해 header 바깥을 감싸는 black 랩퍼 추가 -->
+    <div class="bg-black w-full">
+        <nav class="bg-slate-950/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <img src="https://github.com/ggeng2651/waterworld_grok/raw/main/%ED%95%98%EC%9D%B4%EC%9B%90%20%EB%A1%9C%EA%B3%A0%20%EB%B0%B0%EA%B2%BDx.png"
+                    alt="하이원"
+                    class="h-14 w-auto object-contain">
+                    <div>
+                        <span class="text-2xl font-bold text-purple-600"></span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#zones" class="text-white hover:text-purple-300 transition">시설안내</a>
+                    <a href="#events" class="text-white hover:text-purple-300 transition">이벤트</a>
+                    <a href="#info" class="text-white hover:text-purple-300 transition">이용안내</a>
+                </div>
+                <div class="text-xs md:text-sm bg-purple-600 text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full font-medium flex items-center gap-2 hover:bg-purple-700 transition">
+                    <i class="fas fa-phone"></i>
+                    1588-7789
                 </div>
             </div>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#zones" class="text-white hover:text-purple-300 transition">시설안내</a>
-                <a href="#events" class="text-white hover:text-purple-300 transition">이벤트</a>
-                <a href="#info" class="text-white hover:text-purple-300 transition">이용안내</a>
-            </div>
-            <div class="text-xs md:text-sm bg-purple-600 text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full font-medium flex items-center gap-2 hover:bg-purple-700 transition">
-                <i class="fas fa-phone"></i>
-                1588-7789
-            </div>
-        </div>
-    </nav>
+        </nav>
 
-    <header class="hero-bg min-h-screen md:h-screen flex items-center justify-center text-white relative py-20 md:py-0 overflow-hidden">
-        <div class="w-full max-w-5xl mx-auto px-4 text-center z-10">
-        
-        </div>
-        
-        <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-10">
-            <div class="text-[10px] md:text-xs tracking-widest mb-1 opacity-70">SCROLL</div>
-            <i class="fas fa-chevron-down animate-bounce text-xl md:text-3xl opacity-70"></i>
-        </div>
-    </header>
+        <header class="hero-bg min-h-screen md:h-screen flex items-center justify-center text-white relative py-20 md:py-0 overflow-hidden">
+            <div class="w-full max-w-5xl mx-auto px-4 text-center z-10">
+            
+            </div>
+            
+            <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-10">
+                <div class="text-[10px] md:text-xs tracking-widest mb-1 opacity-70">SCROLL</div>
+                <i class="fas fa-chevron-down animate-bounce text-xl md:text-3xl opacity-70"></i>
+            </div>
+        </header>
+    </div>
 
     <section class="py-20 bg-gradient-to-b from-white to-purple-50">
         <div class="max-w-5xl mx-auto px-6">
@@ -112,7 +117,7 @@ class="h-14 w-auto object-contain">
                         </h4>
 
                         <div class="space-y-3 text-sm sm:text-base break-keep">
-                            <p>하이원의 1년이 이제 하나의 브랜드 세계로 펼쳐집니다.</p>
+                            <p>하이원의 1년이 이제 하나의 brand 세계로 펼쳐집니다.</p>
                             <p>리조트 곳곳에 구성된 8개의 STOP을 따라 이동하며 공간별 특색을 담은 다양한 공연과 콘텐츠를 만나고</p>
                             <p>계절마다 새롭게 변화하는 하이원만의 특별한 축제를 경험할 수 있습니다.</p>
                             <p>공연은 무대를 넘어 하이원 곳곳으로 이어지고, 머무는 모든 순간은 새로운 즐거움과 특별한 추억으로 완성됩니다.</p>
@@ -175,7 +180,7 @@ class="h-14 w-auto object-contain">
                     </div>
                 </div>
 
-<div class="zone-card bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-lg flex flex-col">
+                <div class="zone-card bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-lg flex flex-col">
                     <div class="h-48 bg-cover bg-center" style="background-image: url('https://github.com/ggeng2651/waterworld_grok/raw/main/%EC%9B%8C%ED%84%B0%EC%8A%A4%ED%83%910710.jpg')"></div>
                     <div class="p-5 flex flex-col flex-1">
                         <div class="uppercase text-purple-600 text-sm font-bold tracking-widest mb-2">워터 스탑</div>
@@ -368,7 +373,7 @@ class="h-14 w-auto object-contain">
                 </div>
                 
                 <div class="text-center md:text-right">
-                    <div class="text-white text-sm mb-2">하이원 리조트 공식 사이트</div>
+                    <div class="white text-sm mb-2">하이원 리조트 공식 사이트</div>
                     <a href="https://www.high1.com" target="_blank" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition">
                         www.high1.com <i class="fas fa-external-link-alt"></i>
                     </a>

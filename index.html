@@ -44,44 +44,56 @@
         
         .zone-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            box-shadow: 0 20px 25px -5px rgb(123 66 255 / 0.2), 0 8px 10px -6px rgb(123 66 255 / 0.2);
         }
         
         .slide {
             scroll-snap-align: start;
         }
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#9E75FF',
+                            DEFAULT: '#7B42FF', // 첨부 이미지 기반 추출 네온 퍼플
+                            dark: '#5C2ECC',
+                            bgDark: '#0D081B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-[#0B0714] text-gray-100">
-    <!-- 배경 이미지 좌우 여백 처리를 위한 블랙 랩퍼 -->
+<body class="bg-brand-bgDark text-gray-100">
     <div class="bg-black w-full">
-        <!-- [수정] 네비바 배경을 흰색(bg-white/95)으로 변경하고 하단 경계선(border-b) 추가 -->
-        <nav class="bg-white/95 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-gray-200">
+        <nav class="bg-white/95 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <img src="https://github.com/ggeng2651/waterworld_grok/raw/main/%ED%95%98%EC%9D%B4%EC%9B%90%20%EB%A1%9C%EA%B3%A0%20%EB%B0%B0%EA%B2%BDx.png"
                     alt="하이원"
                     class="h-14 w-auto object-contain">
                     <div>
-                        <span class="text-2xl font-bold text-purple-600"></span>
+                        <span class="text-2xl font-bold text-brand"></span>
                     </div>
                 </div>
-                <!-- [수정] 글자 색상을 어두운 톤(text-gray-700)으로 변경하여 가독성 확보 -->
                 <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
-                    <a href="#zones" class="text-gray-700 hover:text-purple-600 transition">시설안내</a>
-                    <a href="#events" class="text-gray-700 hover:text-purple-600 transition">이벤트</a>
-                    <a href="#info" class="text-gray-700 hover:text-purple-600 transition">이용안내</a>
+                    <a href="#zones" class="text-gray-700 hover:text-brand transition">시설안내</a>
+                    <a href="#events" class="text-gray-700 hover:text-brand transition">이벤트</a>
+                    <a href="#info" class="text-gray-700 hover:text-brand transition">이용안내</a>
                 </div>
-                <a href="tel:1588-7789" class="text-xs md:text-sm bg-purple-600 text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full font-medium flex items-center gap-2 hover:bg-purple-700 transition shadow-sm cursor-pointer">
-    <i class="fas fa-phone"></i>
-    1588-7789
-</a>
+                <a href="tel:1588-7789" class="text-xs md:text-sm bg-brand text-white px-3 md:px-5 py-2 md:py-2.5 rounded-full font-medium flex items-center gap-2 hover:bg-brand-dark transition shadow-sm cursor-pointer">
+                    <i class="fas fa-phone"></i>
+                    1588-7789
+                </a>
             </div>
         </nav>
 
         <header class="hero-bg min-h-screen md:h-screen flex items-center justify-center text-white relative py-20 md:py-0 overflow-hidden">
             <div class="w-full max-w-5xl mx-auto px-4 text-center z-10">
-            
             </div>
             
             <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-10">
@@ -91,32 +103,32 @@
         </header>
     </div>
 
-    <section class="py-20 bg-gradient-to-b from-[#0B0714] via-[#170B2E] to-[#0B0714]">
+    <section class="py-20 bg-gradient-to-b from-brand-bgDark via-[#191032] to-brand-bgDark">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center">
                 <div>
-                    <div class="text-sm text-purple-600 font-semibold uppercase">HIGH1 WONDERVERSE</div>
-                    <h3 class="text-4xl font-bold mt-2 mb-4">하이원 원더버스</h3>
-                    <div class="inline-block bg-violet-500/20 border border-violet-400/40 text-violet-300 text-lg font-semibold uppercase px-5 py-2 rounded-lg shadow-lg shadow-violet-500/20">만나는 곳마다 새로운 HIGH</div>
+                    <div class="text-sm text-brand-light font-semibold uppercase tracking-wider">HIGH1 WONDERVERSE</div>
+                    <h3 class="text-4xl font-bold mt-2 mb-4 text-white">하이원 원더버스</h3>
+                    <div class="inline-block bg-brand/20 border border-brand/40 text-brand-light text-lg font-semibold uppercase px-5 py-2 rounded-lg shadow-lg shadow-brand/20">만나는 곳마다 새로운 HIGH</div>
                 </div>
 
-                <div class="space-y-6 text-gray-700 leading-8">
-                    <p class="break-keep">
+                <div class="space-y-6 text-gray-300 leading-8 mt-8">
+                    <p class="break-keep text-lg">
                         하이원 원더버스는 하이원리조트 곳곳에서 펼쳐지는 상설공연과 시즌별 테마공연<br class="hidden sm:inline"> 이벤트 및 체험 콘텐츠를 하나로 연결한 연간 공연 프로젝트 입니다.
                     </p>
 
-                    <div class="bg-purple-50 rounded-2xl p-6 text-center border border-purple-100">
-                        <h4 class="text-xl font-bold mb-4 text-purple-700 break-keep">
-                            하이원의 모든 순간을 하나의 세계로 연결하는 이름<br>"HIGH1 WONDERVERSE"
+                    <div class="bg-white/[0.03] rounded-2xl p-6 text-center border border-brand/20 backdrop-blur-sm">
+                        <h4 class="text-xl font-bold mb-4 text-brand-light break-keep">
+                            하이원의 모든 순간을 하나의 세계로 연결하는 이름<br class="hidden sm:inline">"HIGH1 WONDERVERSE"
                         </h4>
 
-                        <div class="space-y-3 text-sm sm:text-base break-keep">
+                        <div class="space-y-3 text-sm sm:text-base break-keep text-gray-400">
                             <p>하이원의 1년이 이제 하나의 brand 세계로 펼쳐집니다.</p>
                             <p>리조트 곳곳에 구성된 8개의 STOP을 따라 이동하며 공간별 특색을 담은 다양한 공연과 콘텐츠를 만나고</p>
                             <p>계절마다 새롭게 변화하는 하이원만의 특별한 축제를 경험할 수 있습니다.</p>
                             <p>공연은 무대를 넘어 하이원 곳곳으로 이어지고, 머무는 모든 순간은 새로운 즐거움과 특별한 추억으로 완성됩니다.</p>
                             <p>체크인하는 순간부터 체크아웃하는 순간까지, 하이원에서의 모든 시간이 하나의 여정이 되는 특별한 경험.</p>
-                            <p class="font-semibold text-purple-600">하이원 원더버스가 그 여정을 시작합니다.</p>
+                            <p class="font-semibold text-brand-light mt-4 text-lg">하이원 원더버스가 그 여정을 시작합니다.</p>
                         </div>
                     </div>
                 </div>
@@ -124,122 +136,162 @@
         </div>
     </section>
 
-    <section id="zones" class="py-20 bg-slate-100">
+    <section id="zones" class="py-20 bg-gray-50 text-gray-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">하이원 원더버스</h2>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">하이원 원더버스 스탑</h2>
                 <p class="text-xl text-gray-600">가족과 함께, 스릴을 원하는 모두를 위한 공간</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="zone-card bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-lg flex flex-col">
+                <div class="zone-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-md flex flex-col">
                     <div class="h-48 bg-cover bg-center" style="background-image: url('https://github.com/ggeng2651/waterworld_grok/raw/main/%EC%B9%B4%EC%A7%80%EB%85%B8%EC%8A%A4%ED%83%910710.jpg')"></div>
                     <div class="p-5 flex flex-col flex-1">
-                        <div class="uppercase text-purple-600 text-sm font-bold tracking-widest mb-2">카지노 스탑</div>
-                        <h3 class="text-2xl font-bold mb-4">THE GOLDEN MOMENT</h3>
-                        <p class="text-gray-600 mb-6 min-h-[72px]">
-                            황금빛 행운이 소용돌이 치는 곳<br>하이원의 밤이 오직 당신만을 위한<br>화려한 판타지로 물듭니다!<br><br>|장소 : 카지노 컨시어지 데스크<br>|기간 : 7.25 ~ 27.6.28<br>|시간 : 15분
+                        <div class="uppercase text-brand text-sm font-bold tracking-widest mb-2">카지노 스탑</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">THE GOLDEN MOMENT</h3>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed min-h-[72px]">
+                            황금빛 행운이 소용돌이 치는 곳<br>하이원의 밤이 오직 당신만을 위한<br>화려한 판타지로 물듭니다!<br><br>
+                            <span class="text-xs text-gray-500 block mt-2">
+                                <strong>장소</strong> : 카지노 컨시어지 데스크<br>
+                                <strong>기간</strong> : 7.25 ~ 27.6.28<br>
+                                <strong>시간</strong> : 15분
+                            </span>
                         </p>
-                        <a href="https://www.high1.com/casino/index.do" target="_blank" class="inline-flex items-center gap-2 text-purple-600 hover:text-cyan-700 font-medium mt-auto">
-                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        <a href="https://www.high1.com/casino/index.do" target="_blank" class="inline-flex items-center gap-2 text-brand hover:text-brand-dark font-medium mt-auto text-sm">
+                            자세히 보기 <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="zone-card bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-lg flex flex-col">
+                <div class="zone-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-md flex flex-col">
                     <div class="h-48 bg-cover bg-center" style="background-image: url('https://github.com/ggeng2651/waterworld_grok/raw/main/%ED%98%B8%ED%85%94%EC%8A%A4%ED%83%910710.jpg')"></div>
                     <div class="p-5 flex flex-col flex-1">
-                        <div class="uppercase text-purple-600 text-sm font-bold tracking-widest mb-2">호텔 스탑</div>
-                        <h3 class="text-2xl font-bold mb-4">HIGH1 THE LIVE FRAME, K</h3>
-                        <p class="text-gray-600 mb-6 min-h-[72px]">
-                            하이원에 도착한 순간!<br>봉인된 한옥의 문이 열리고 <br>한국적 판타지의 세계가 펼쳐집니다<br><br>|장소 : 그랜드호텔 로비<br>|기간 : 7.25 ~ 27.6.28<br>|시간 : 00분
+                        <div class="uppercase text-brand text-sm font-bold tracking-widest mb-2">호텔 스탑</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">HIGH1 THE LIVE FRAME, K</h3>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed min-h-[72px]">
+                            하이원에 도착한 순간!<br>봉인된 한옥의 문이 열리고 <br>한국적 판타지의 세계가 펼쳐집니다<br><br>
+                            <span class="text-xs text-gray-500 block mt-2">
+                                <strong>장소</strong> : 그랜드호텔 로비<br>
+                                <strong>기간</strong> : 7.25 ~ 27.6.28<br>
+                                <strong>시간</strong> : 00분
+                            </span>
                         </p>
-                        <a href="https://www.high1.com/hotelncondo/index.do" target="_blank" class="inline-flex items-center gap-2 text-purple-600 hover:text-cyan-700 font-medium mt-auto">
-                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        <a href="https://www.high1.com/hotelncondo/index.do" target="_blank" class="inline-flex items-center gap-2 text-brand hover:text-brand-dark font-medium mt-auto text-sm">
+                            자세히 보기 <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="zone-card bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-lg flex flex-col">
+                <div class="zone-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-md flex flex-col">
                     <div class="h-48 bg-cover bg-center" style="background-image: url('https://github.com/ggeng2651/waterworld_grok/raw/main/%EB%AF%B8%EB%94%94%EC%96%B4%EC%8A%A4%ED%83%910710.jpg')"></div>
                     <div class="p-5 flex flex-col flex-1">
-                        <div class="uppercase text-purple-600 text-sm font-bold tracking-widest mb-2">미디어 스탑</div>
-                        <h3 class="text-2xl font-bold mb-4">AWAKENING OF LIGHT</h3>
-                        <p class="text-gray-600 mb-6 min-h-[72px]">
-                            어둠 속에서 깨어난 빛의 파동<br>다섯 존재가 그려내는 신비로운 <br>디지털 판타지<br><br>|장소 : 그랜드호텔 로비<br>|기간 : 7.25 ~ 27.6.28<br>|시간 : 00분
+                        <div class="uppercase text-brand text-sm font-bold tracking-widest mb-2">미디어 스탑</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">AWAKENING OF LIGHT</h3>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed min-h-[72px]">
+                            어둠 속에서 깨어난 빛의 파동<br>다섯 존재가 그려내는 신비로운 <br>디지털 판타지<br><br>
+                            <span class="text-xs text-gray-500 block mt-2">
+                                <strong>장소</strong> : 그랜드호텔 로비<br>
+                                <strong>기간</strong> : 7.25 ~ 27.6.28<br>
+                                <strong>시간</strong> : 00분
+                            </span>
                         </p>
-                        <a href="https://www.high1.com/waterworld/contents.do?key=707" target="_blank" class="inline-flex items-center gap-2 text-purple-600 hover:text-cyan-700 font-medium mt-auto">
-                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        <a href="https://www.high1.com/waterworld/contents.do?key=707" target="_blank" class="inline-flex items-center gap-2 text-brand hover:text-brand-dark font-medium mt-auto text-sm">
+                            자세히 보기 <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="zone-card bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-lg flex flex-col">
+                <div class="zone-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-md flex flex-col">
                     <div class="h-48 bg-cover bg-center" style="background-image: url('https://github.com/ggeng2651/waterworld_grok/raw/main/%EC%9B%8C%ED%84%B0%EC%8A%A4%ED%83%910710.jpg')"></div>
                     <div class="p-5 flex flex-col flex-1">
-                        <div class="uppercase text-purple-600 text-sm font-bold tracking-widest mb-2">워터 스탑</div>
-                        <h3 class="text-2xl font-bold mb-4">SPLASH CARNIVAL</h3>
-                        <p class="text-gray-600 mb-6 min-h-[72px]">
-                            하이원 워터월드에서 펼쳐지는<br>열정적인 음악과 화려한 퍼포먼스<br>워터 카니발의 주인공이 되세요<br><br>|장소 : 워터월드 야외 광장 일대<br>|기간 : 7.25 ~ 8.24<br>|시간 : 00분
+                        <div class="uppercase text-brand text-sm font-bold tracking-widest mb-2">워터 스탑</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">SPLASH CARNIVAL</h3>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed min-h-[72px]">
+                            하이원 워터월드에서 펼쳐지는<br>열정적인 음악과 화려한 퍼포먼스<br>워터 카니발의 주인공이 되세요<br><br>
+                            <span class="text-xs text-gray-500 block mt-2">
+                                <strong>장소</strong> : 워터월드 야외 광장 일대<br>
+                                <strong>기간</strong> : 7.25 ~ 8.24<br>
+                                <strong>시간</strong> : 00분
+                            </span>
                         </p>
-                        <a href="https://www.high1.com/waterworld/contents.do?key=707" target="_blank" class="inline-flex items-center gap-2 text-purple-600 hover:text-cyan-700 font-medium mt-auto">
-                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        <a href="https://www.high1.com/waterworld/contents.do?key=707" target="_blank" class="inline-flex items-center gap-2 text-brand hover:text-brand-dark font-medium mt-auto text-sm">
+                            자세히 보기 <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="zone-card bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-lg flex flex-col">
+                <div class="zone-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-md flex flex-col">
                     <div class="h-48 bg-cover bg-center" style="background-image: url('https://github.com/ggeng2651/waterworld_grok/raw/main/%ED%95%A0%EB%A1%9C%EC%9C%88%EC%8A%A4%ED%83%910710.jpg')"></div>
                     <div class="p-5 flex flex-col flex-1">
-                        <div class="uppercase text-purple-600 text-sm font-bold tracking-widest mb-2">할로윈 스탑</div>
-                        <h3 class="text-2xl font-bold mb-4">DIA DE HIGH1</h3>
-                        <p class="text-gray-600 mb-6 min-h-[72px]">
-                            "죽은 자의 날"에서 영감을 받은<br>이국적인 축제가 새롭게 펼쳐집니다<br><br>|장소 : 하이원호텔 웰니스라운지<br>|기간 : 9.24 ~ 10.31<br>|시간 : 00분
+                        <div class="uppercase text-brand text-sm font-bold tracking-widest mb-2">할로윈 스탑</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">DIA DE HIGH1</h3>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed min-h-[72px]">
+                            "죽은 자의 날"에서 영감을 받은<br>이국적인 축제가 새롭게 펼쳐집니다<br><br>
+                            <span class="text-xs text-gray-500 block mt-2">
+                                <strong>장소</strong> : 하이원호텔 웰니스라운지<br>
+                                <strong>기간</strong> : 9.24 ~ 10.31<br>
+                                <strong>시간</strong> : 00분
+                            </span>
                         </p>
-                        <a href="https://www.high1.com/waterworld/contents.do?key=707" target="_blank" class="inline-flex items-center gap-2 text-purple-600 hover:text-cyan-700 font-medium mt-auto">
-                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        <a href="https://www.high1.com/waterworld/contents.do?key=707" target="_blank" class="inline-flex items-center gap-2 text-brand hover:text-brand-dark font-medium mt-auto text-sm">
+                            자세히 보기 <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="zone-card bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-lg flex flex-col">
+                <div class="zone-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-md flex flex-col">
                     <div class="h-48 bg-cover bg-center" style="background-image: url('https://github.com/ggeng2651/waterworld_grok/raw/main/%EC%8A%A4%ED%82%A4%EC%8A%A4%ED%83%910710.jpg')"></div>
                     <div class="p-5 flex flex-col flex-1">
-                        <div class="uppercase text-purple-600 text-sm font-bold tracking-widest mb-2">스키 스탑</div>
-                        <h3 class="text-2xl font-bold mb-4">FIRE ON SNOW</h3>
-                        <p class="text-gray-600 mb-6 min-h-[72px]">
-                            스키장의 리프트가 멈춘 고요한 밤<br>설원은 비로소 거대한 무대로 변모합니다<br><br>|장소 : 스키장 베이스<br>|기간 : 12.24 ~ 27.2.13<br>|시간 : 00분
+                        <div class="uppercase text-brand text-sm font-bold tracking-widest mb-2">스키 스탑</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">FIRE ON SNOW</h3>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed min-h-[72px]">
+                            스키장의 리프트가 멈춘 고요한 밤<br>설원은 비로소 거대한 무대로 변모합니다<br><br>
+                            <span class="text-xs text-gray-500 block mt-2">
+                                <strong>장소</strong> : 스키장 베이스<br>
+                                <strong>기간</strong> : 12.24 ~ 27.2.13<br>
+                                <strong>시간</strong> : 00분
+                            </span>
                         </p>
-                        <a href="https://www.high1.com/ski/index.do" target="_blank" class="inline-flex items-center gap-2 text-purple-600 hover:text-cyan-700 font-medium mt-auto">
-                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        <a href="https://www.high1.com/ski/index.do" target="_blank" class="inline-flex items-center gap-2 text-brand hover:text-brand-dark font-medium mt-auto text-sm">
+                            자세히 보기 <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="zone-card bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-lg flex flex-col">
+                <div class="zone-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-md flex flex-col">
                     <div class="h-48 bg-cover bg-center" style="background-image: url('https://github.com/ggeng2651/waterworld_grok/raw/main/%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4%EC%8A%A4%ED%83%910710.jpg')"></div>
                     <div class="p-5 flex flex-col flex-1">
-                        <div class="uppercase text-purple-600 text-sm font-bold tracking-widest mb-2">크리스마스 스탑</div>
-                        <h3 class="text-2xl font-bold mb-4">WINTER WONDERLAND NORDIC VILLAGE</h3>
-                        <p class="text-gray-600 mb-6 min-h-[72px]">
-                            호텔에서 만나는 크리스마스의 정수<br>선물 같은 크리스마스 순간을 경험하세요<br><br>|장소 : 호텔 내부 로비<br>|기간 : 12.24 ~ 12.26<br>|시간 : 00분
+                        <div class="uppercase text-brand text-sm font-bold tracking-widest mb-2">크리스마스 스탑</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">WINTER WONDERLAND</h3>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed min-h-[72px]">
+                            호텔에서 만나는 크리스마스의 정수<br>선물 같은 크리스마스 순간을 경험하세요<br><br>
+                            <span class="text-xs text-gray-500 block mt-2">
+                                <strong>장소</strong> : 호텔 내부 로비<br>
+                                <strong>기간</strong> : 12.24 ~ 12.26<br>
+                                <strong>시간</strong> : 00분
+                            </span>
                         </p>
-                        <a href="https://www.high1.com/waterworld/contents.do?key=707" target="_blank" class="inline-flex items-center gap-2 text-purple-600 hover:text-cyan-700 font-medium mt-auto">
-                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        <a href="https://www.high1.com/waterworld/contents.do?key=707" target="_blank" class="inline-flex items-center gap-2 text-brand hover:text-brand-dark font-medium mt-auto text-sm">
+                            자세히 보기 <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
                 
-                <div class="zone-card bg-white border border-purple-100 rounded-3xl overflow-hidden shadow-lg flex flex-col">
+                <div class="zone-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-md flex flex-col">
                     <div class="h-48 bg-cover bg-center" style="background-image: url('https://github.com/ggeng2651/waterworld_grok/raw/main/%EC%B0%A8%EC%9D%BC%EB%93%9C%EC%8A%A4%ED%83%910710.jpg')"></div>
                     <div class="p-5 flex flex-col flex-1">
-                        <div class="uppercase text-purple-600 text-sm font-bold tracking-widest mb-2">어린이 스탑</div>
-                        <h3 class="text-2xl font-bold mb-4">DYNAMIC COLOR PLAY</h3>
-                        <p class="text-gray-600 mb-6 min-h-[72px]">
-                            어린이날 주간<br>특별한 친구들과 함께하는<br>퍼레이드와 신나는 퍼포먼스<br><br>|장소 : 하이원 호텔<br>|기간 : 27.5.5 ~ 5.8<br>|시간 : 00분
+                        <div class="uppercase text-brand text-sm font-bold tracking-widest mb-2">어린이 스탑</div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">DYNAMIC COLOR PLAY</h3>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed min-h-[72px]">
+                            어린이날 주간<br>특별한 친구들과 함께하는<br>퍼레이드와 신나는 퍼포먼스<br><br>
+                            <span class="text-xs text-gray-500 block mt-2">
+                                <strong>장소</strong> : 하이원 호텔<br>
+                                <strong>기간</strong> : 27.5.5 ~ 5.8<br>
+                                <strong>시간</strong> : 00분
+                            </span>
                         </p>
-                        <a href="https://www.high1.com/waterworld/contents.do?key=711" target="_blank" class="inline-flex items-center gap-2 text-purple-600 hover:text-cyan-700 font-medium mt-auto">
-                            자세히 보기 <i class="fas fa-arrow-right"></i>
+                        <a href="https://www.high1.com/waterworld/contents.do?key=711" target="_blank" class="inline-flex items-center gap-2 text-brand hover:text-brand-dark font-medium mt-auto text-sm">
+                            자세히 보기 <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
@@ -247,141 +299,141 @@
         </div>
     </section>
 
-    <section id="events" class="py-20 bg-gradient-to-b from-[#0B0714] via-[#170B2E] to-[#0B0714]">
+    <section id="events" class="py-20 bg-gradient-to-b from-brand-bgDark via-[#150D2A] to-brand-bgDark text-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4">이벤트 &amp; 패키지</h2>
             </div>
 
-            <div class="flex flex-col md:flex-row items-stretch gap-8 bg-white rounded-3xl shadow-lg overflow-hidden mb-8 border border-gray-200">
-                <div class="w-full md:w-2/5 bg-purple-50 flex items-center justify-center p-4">
+            <div class="flex flex-col md:flex-row items-stretch gap-8 bg-white rounded-3xl shadow-xl overflow-hidden mb-8 border border-brand/20">
+                <div class="w-full md:w-2/5 bg-brand/5 flex items-center justify-center p-4">
                     <img src="https://github.com/ggeng2651/waterworld_grok/raw/main/%EC%8A%A4%ED%83%AC%ED%94%84%20%EC%84%B8%EB%A1%9C.png" alt="키즈원더랜드 공연행사" class="w-full max-w-[350px] md:max-w-none h-auto object-contain rounded-xl">
                 </div>
 
-                <div class="md:w-3/5 p-8 flex flex-col justify-center">
-                    <div class="text-amber-500 mb-3">
+                <div class="md:w-3/5 p-8 flex flex-col justify-center text-gray-800">
+                    <div class="text-brand mb-3">
                         <i class="fas fa-star text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-bold mb-3 break-keep">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-3 break-keep text-gray-900">
                         ＂하이원의 공연을 더 즐겁게! [원더패스]＂
                     </h3>
                     <div class="text-sm text-gray-500 mb-5">2026.07.01 ~ 2026.07.31</div>
                     <div class="text-gray-600 text-base sm:text-lg leading-relaxed break-keep space-y-2">
                         <p>하이원의 다채로운 공연을 관람하고, 나만의 특별한 인증샷을 남겨보세요. 공연 현장에서 스탬프를 모으면 하이원이 준비한 특별한 선물을 드립니다.</p>
-                        <div class="mt-4 font-bold text-gray-800">참여 방법</div>
+                        <div class="mt-4 font-bold text-gray-900">참여 방법</div>
                         <ol class="list-decimal pl-4 space-y-1 text-sm sm:text-base text-gray-600">
                             <li>하이원 곳곳에서 펼쳐지는 공연을 관람합니다.</li>
-                            <li>개인 SNS에 공연 인증샷을 올리고 필수 해시태그를 남겨주세요!<br><span class="text-purple-600 font-medium">(#하이원원더버스 #하이원리조트 #하이원공연명 #원더패스)</span></li>
+                            <li>개인 SNS에 공연 인증샷을 올리고 필수 해시태그를 남겨주세요!<br><span class="text-brand font-semibold">(#하이원원더버스 #하이원리조트 #하이원공연명 #원더패스)</span></li>
                             <li>공연장 안내 데스크에서 직원에게 인증 화면을 보여주고 스탬프를 받습니다.</li>
                         </ol>
-                        <div class="mt-3 font-bold text-gray-800">스탬프별 리워드 (즉시 지급):</div>
+                        <div class="mt-3 font-bold text-gray-900">스탬프별 리워드 (즉시 지급):</div>
                         <ul class="list-disc pl-4 text-sm text-gray-600">
                             <li>스탬프 2개: 하이원 특별 제작 '타투 스티커' 증정!</li>
                             <li>스탬프 5개 이상: 하이원 시그니처 '필링 럭키펜' 증정!</li>
                             <li>스탬프 7개 이상: 행운이 가득한 ‘럭키자일리톨큐브’ 증정!</li>
                         </ul>
-                        <p class="text-sm mt-2 text-gray-500"><i class="fas fa-info-circle"></i> 리워드 수령처: 그랜드호텔 컨시어지 데스크</p>
+                        <p class="text-sm mt-3 text-brand font-medium"><i class="fas fa-info-circle"></i> 리워드 수령처: 그랜드호텔 컨시어지 데스크</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <section id="info" class="py-20 bg-slate-950 text-white">
+    <section id="info" class="py-20 bg-[#07040E] text-white border-t border-brand/10">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
             <div>
-                <h2 class="text-4xl font-bold mb-10">이용안내</h2>
+                <h2 class="text-4xl font-bold mb-10 text-white">이용안내</h2>
                 <div class="space-y-8">
                     <div class="flex gap-6">
-                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-clock text-2xl"></i>
+                        <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center flex-shrink-0 border border-brand/20">
+                            <i class="fas fa-clock text-xl text-brand-light"></i>
                         </div>
                         <div>
-                            <div class="font-semibold text-lg">운영시간</div>
-                            <div class="text-purple-200">10:00 ~ 17:30 (물놀이 17:00 종료)</div>
+                            <div class="font-semibold text-lg text-gray-300">운영시간</div>
+                            <div class="text-brand-light font-medium text-lg">10:00 ~ 17:30 (물놀이 17:00 종료)</div>
                         </div>
                     </div>
                     <div class="flex gap-6">
-                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-phone text-2xl"></i>
+                        <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center flex-shrink-0 border border-brand/20">
+                            <i class="fas fa-phone text-xl text-brand-light"></i>
                         </div>
                         <div>
-                            <div class="font-semibold text-lg">대표전화</div>
-                            <div class="text-2xl sm:text-3xl font-bold tracking-wider">1588-7789</div>
+                            <div class="font-semibold text-lg text-gray-300">대표전화</div>
+                            <div class="text-2xl sm:text-3xl font-bold tracking-wider text-white">1588-7789</div>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div>
-                <h3 class="text-2xl font-semibold mb-6">주요 시설</h3>
-                <ul class="grid grid-cols-2 gap-x-8 gap-y-4 text-purple-100">
-                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 패밀리 웨이브</li>
-                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 아쿠아플레이</li>
-                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 포세이돈 웨이브</li>
-                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 둥둥리버</li>
-                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 다양한 슬라이드</li>
-                    <li class="flex items-center gap-3"><i class="fas fa-check"></i> 온수 풀</li>
+                <h3 class="text-2xl font-semibold mb-6 text-gray-200">주요 시설</h3>
+                <ul class="grid grid-cols-2 gap-x-8 gap-y-4 text-gray-400">
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-brand-light"></i> 패밀리 웨이브</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-brand-light"></i> 아쿠아플레이</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-brand-light"></i> 포세이돈 웨이브</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-brand-light"></i> 둥둥리버</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-brand-light"></i> 다양한 슬라이드</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-brand-light"></i> 온수 풀</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-gray-50">
+    <section id="contact" class="py-20 bg-gray-50 text-gray-900">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
-                <span class="inline-block bg-purple-100 text-purple-700 text-sm font-medium px-4 py-1.5 rounded-full">CONTACT</span>
+                <span class="inline-block bg-brand/10 text-brand text-sm font-medium px-4 py-1.5 rounded-full">CONTACT</span>
                 <h2 class="text-4xl md:text-5xl font-bold mt-4">문의하기</h2>
                 <p class="text-gray-600 mt-4 break-keep">
                     하이원 워터월드에 대한 문의를 남겨주세요.<br>담당자가 확인 후 연락드립니다.
                 </p>
             </div>
 
-            <form id="contactForm" class="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+            <form id="contactForm" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
                 <div class="grid md:grid-cols-2 gap-6">
-                    <input type="text" id="name" placeholder="이름" class="border rounded-xl p-4 w-full" required>
-                    <input type="text" id="phone" placeholder="연락처" class="border rounded-xl p-4 w-full" required>
+                    <input type="text" id="name" placeholder="이름" class="border border-gray-200 rounded-xl p-4 w-full focus:outline-none focus:border-brand" required>
+                    <input type="text" id="phone" placeholder="연락처" class="border border-gray-200 rounded-xl p-4 w-full focus:outline-none focus:border-brand" required>
                 </div>
-                <input type="email" id="email" placeholder="이메일" class="border rounded-xl p-4 w-full mt-6">
-                <textarea id="message" rows="6" placeholder="문의 내용을 입력해주세요." class="border rounded-xl p-4 w-full mt-6" required></textarea>
-                <label class="flex items-center gap-2 mt-6 text-sm cursor-pointer select-none">
-                    <input type="checkbox" required class="accent-purple-600">
+                <input type="email" id="email" placeholder="이메일" class="border border-gray-200 rounded-xl p-4 w-full mt-6 focus:outline-none focus:border-brand">
+                <textarea id="message" rows="6" placeholder="문의 내용을 입력해주세요." class="border border-gray-200 rounded-xl p-4 w-full mt-6 focus:outline-none focus:border-brand" required></textarea>
+                <label class="flex items-center gap-2 mt-6 text-sm cursor-pointer select-none text-gray-600">
+                    <input type="checkbox" required class="accent-brand w-4 h-4">
                     개인정보 수집 및 이용에 동의합니다.
                 </label>
-                <button type="submit" class="mt-8 w-full bg-purple-600 text-white py-4 rounded-full font-bold hover:bg-purple-700 transition shadow-lg">
+                <button type="submit" class="mt-8 w-full bg-brand text-white py-4 rounded-full font-bold hover:bg-brand-dark transition shadow-lg shadow-brand/20">
                     문의하기
                 </button>
             </form>
         </div>
     </section>
     
-    <footer class="bg-gray-900 text-gray-400 py-16">
+    <footer class="bg-gray-950 text-gray-500 py-16 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                 <div class="text-center md:text-left">
                     <div class="flex items-center justify-center md:justify-start gap-3 text-white mb-4">
-                        <span class="text-xl font-bold">하이원 워터월드</span>
+                        <span class="text-xl font-bold text-gray-200">하이원 워터월드</span>
                     </div>
                     <p class="text-sm">강원도 정선군 사북읍 하이원길 265</p>
                 </div>
                 
                 <div class="text-center md:text-right">
-                    <div class="white text-sm mb-2">하이원 리조트 공식 사이트</div>
-                    <a href="https://www.high1.com" target="_blank" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition">
-                        www.high1.com <i class="fas fa-external-link-alt"></i>
+                    <div class="text-sm mb-2 text-gray-400">하이원 리조트 공식 사이트</div>
+                    <a href="https://www.high1.com" target="_blank" class="inline-flex items-center gap-2 text-brand-light hover:text-brand transition">
+                        www.high1.com <i class="fas fa-external-link-alt text-xs"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-16 pt-8 text-xs text-center">
+            <div class="border-t border-gray-900 mt-16 pt-8 text-xs text-center text-gray-600">
                 © 2026 High1 Resort. All Rights Reserved. 
-                <span class="block sm:inline text-gray-500 sm:ml-2">본 페이지는 홍보용 랜딩페이지입니다.</span>
+                <span class="block sm:inline text-gray-700 sm:ml-2">본 페이지는 홍보용 랜딩페이지입니다.</span>
             </div>
         </div>
     </footer>
 
     <script>
-    console.log('%c하이원 워터월드 랜딩페이지가 로드되었습니다.', 'color: #3b82f6; font-weight: bold');
+    console.log('%c하이원 워터월드 랜딩페이지가 로드되었습니다.', 'color: #7B42FF; font-weight: bold');
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
